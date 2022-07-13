@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      自动部署 | filway
+    </title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/_assets/style.6c30fbeb.css">
+    <link rel="modulepreload" href="/_assets/common-bec3f312.js">
+    <link rel="modulepreload" href="/_assets/docs_notes_deploy.md.7a12875a.lean.js">
+    <link rel="modulepreload" href="/_assets/app.0612fb83.js">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="filway,技术博客,记录日常">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css">
+    <script src="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.21.1/axios.js"></script>
+    <script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6346362766172412" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div id="containerColor" class="no-sidebar theme" data-v-2001909f><header class="navbar" data-v-2001909f><!--[--><a class="title" aria-label="filway, back to home" href="/"><img class="logo" src="/favicon.ico" alt="logo"><span>filway</span></a><div class="flex-grow"></div><nav class="nav-links hide-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><!--]--><div class="sidebar-button" data-v-2001909f><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div></header><aside class="" data-v-2001909f><!--[--><nav class="nav-links show-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><ul class="sidebar"><!--[--><!--]--></ul><!--[--><!--[--><!--]--><!--]--><!--]--></aside><!----><!-- TODO: make this button accessible --><div class="sidebar-mask" data-v-2001909f></div><main data-v-2001909f><!--[--><div class="content"><!--[--><!--[--><!--]--><!--]--><div class="md-header"><div class="md-title">自动部署</div><span id="jinrishici-sentence">正在加载今日诗词....</span><div class="md-date">2021-10-10</div></div><ul class="catalog"><!--[--><li class="catalog-item"><a class="level level-2" href="#前端发布上线相关">前端发布上线相关</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#release-it">release-it</a></li><li class="catalog-item"><!----><a class="level level-3" href="#pm2相关">pm2相关</a></li><li class="catalog-item"><!----><a class="level level-3" href="#github-action">github action</a></li><!--]--></ul><div data-v-2001909f><h2 id="前端发布上线相关"><a class="header-anchor" href="#前端发布上线相关" aria-hidden="true">#</a> 前端发布上线相关</h2><h3 id="release-it"><a class="header-anchor" href="#release-it" aria-hidden="true">#</a> release-it</h3><ol><li>配置文件.release-it.js</li></ol><div class="language-javascript"><pre><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    git<span class="token operator">:</span> <span class="token punctuation">{</span>
+        tagName<span class="token operator">:</span> <span class="token string">&#39;v${version}&#39;</span><span class="token punctuation">,</span>
+        commitMessage<span class="token operator">:</span> <span class="token string">&#39;release: v${version}&#39;</span><span class="token punctuation">,</span>
+        requireCleanWorkingDir<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        requireBranch<span class="token operator">:</span> <span class="token string">&#39;master&#39;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    hooks<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&#39;before:init&#39;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;git pull origin master&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    npm<span class="token operator">:</span> <span class="token punctuation">{</span>
+        publish<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    prompt<span class="token operator">:</span> <span class="token punctuation">{</span>
+        ghRelease<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        glRelease<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        publish<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    plugins<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&#39;@release-it/conventional-changelog&#39;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            preset<span class="token operator">:</span> <span class="token string">&#39;angular&#39;</span><span class="token punctuation">,</span>
+            infile<span class="token operator">:</span> <span class="token string">&#39;CHANGELOG.md&#39;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><ol start="2"><li>npm脚本</li></ol><div class="language-json"><pre><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;prd&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross-env NODE_ENV=production NODE_LOG_DIR=/tmp/admin-server ENABLE_NODE_LOG=YES  pm2 start bin/pm2-prd.config.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;release&quot;</span><span class="token operator">:</span> <span class="token string">&quot;release-it&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;just-try-release&quot;</span><span class="token operator">:</span> <span class="token string">&quot;release-it --dry-run&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="pm2相关"><a class="header-anchor" href="#pm2相关" aria-hidden="true">#</a> pm2相关</h3><ol><li>配置</li></ol><ul><li>pm2AppConf.js</li></ul><div class="language-javascript"><pre><code><span class="token comment">/**
+* @description pm2 app 配置信息
+*/</span>
+
+<span class="token keyword">const</span> os <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;os&#39;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> cpuCoreLength <span class="token operator">=</span> os<span class="token punctuation">.</span><span class="token function">cpus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token comment">// CPU 几核</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">&#39;项目名称&#39;</span><span class="token punctuation">,</span>
+  script<span class="token operator">:</span> <span class="token string">&#39;bin/www&#39;</span><span class="token punctuation">,</span>
+  <span class="token comment">// watch: true,</span>
+  ignore_watch<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;node_modules&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;__test__&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;logs&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  instances<span class="token operator">:</span> cpuCoreLength<span class="token punctuation">,</span>
+  error_file<span class="token operator">:</span> <span class="token string">&#39;./logs/err.log&#39;</span><span class="token punctuation">,</span>
+  out_file<span class="token operator">:</span> <span class="token string">&#39;./logs/out.log&#39;</span><span class="token punctuation">,</span>
+  log_date_format<span class="token operator">:</span> <span class="token string">&#39;YYYY-MM-DD HH:mm:ss Z&#39;</span><span class="token punctuation">,</span> <span class="token comment">// Z 表示使用当前时区的时间格式</span>
+  combine_logs<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 多个实例，合并日志</span>
+  max_memory_restart<span class="token operator">:</span> <span class="token string">&#39;300M&#39;</span><span class="token punctuation">,</span> <span class="token comment">// 内存占用超过 300M ，则重启</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>pm2-prd.config.js</li></ul><div class="language-javascript"><pre><code><span class="token comment">/**
+* @description pm2 配置文件，线上环境
+* @author 双越
+*/</span>
+
+<span class="token keyword">const</span> appConf <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;./pm2AppConf&#39;</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  apps<span class="token operator">:</span> <span class="token punctuation">[</span>appConf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li>www脚本</li></ul><div class="language-javascript"><pre><code>#<span class="token operator">!</span><span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>env node
+
+<span class="token comment">/**
+* Module dependencies.
+*/</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;../src/app&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> debug <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;debug&#39;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">&#39;demo:server&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;http&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> syncDb <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&#39;../src/db/seq/utils/sync-alter&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+* Get port from environment and store in Express.
+*/</span>
+
+<span class="token keyword">const</span> port <span class="token operator">=</span> <span class="token function">normalizePort</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span> <span class="token operator">||</span> <span class="token string">&#39;3000&#39;</span><span class="token punctuation">)</span>
+<span class="token comment">// app.set(&#39;port&#39;, port);</span>
+
+<span class="token comment">/**
+* Create HTTP server.
+*/</span>
+
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span><span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+* Listen on provided port, on all network interfaces.
+*/</span>
+
+<span class="token comment">// 先同步 mysql 数据表</span>
+<span class="token function">syncDb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 再启动服务</span>
+  server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span>
+  server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&#39;error&#39;</span><span class="token punctuation">,</span> onError<span class="token punctuation">)</span>
+  server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&#39;listening&#39;</span><span class="token punctuation">,</span> onListening<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">/**
+* Normalize a port into a number, string, or false.
+*/</span>
+
+<span class="token keyword">function</span> <span class="token function">normalizePort</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> port <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// named pipe</span>
+      <span class="token keyword">return</span> val
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>port <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// port number</span>
+      <span class="token keyword">return</span> port
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+* Event listener for HTTP server &quot;error&quot; event.
+*/</span>
+
+<span class="token keyword">function</span> <span class="token function">onError</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>syscall <span class="token operator">!==</span> <span class="token string">&#39;listen&#39;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">throw</span> error
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> bind <span class="token operator">=</span> <span class="token keyword">typeof</span> port <span class="token operator">===</span> <span class="token string">&#39;string&#39;</span> <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Pipe </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Port </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+
+  <span class="token comment">// handle specific listen errors with friendly messages</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>error<span class="token punctuation">.</span>code<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">&#39;EACCES&#39;</span><span class="token operator">:</span>
+          console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bind<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> requires elevated privileges</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+          process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+          <span class="token keyword">break</span>
+      <span class="token keyword">case</span> <span class="token string">&#39;EADDRINUSE&#39;</span><span class="token operator">:</span>
+          console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bind<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is already in use</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+          process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+          <span class="token keyword">break</span>
+      <span class="token keyword">default</span><span class="token operator">:</span>
+          <span class="token keyword">throw</span> error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/**
+* Event listener for HTTP server &quot;listening&quot; event.
+*/</span>
+
+<span class="token keyword">function</span> <span class="token function">onListening</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> addr <span class="token operator">=</span> server<span class="token punctuation">.</span><span class="token function">address</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> bind <span class="token operator">=</span> <span class="token keyword">typeof</span> addr <span class="token operator">===</span> <span class="token string">&#39;string&#39;</span> <span class="token operator">?</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pipe </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>addr<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span> <span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">port </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>addr<span class="token punctuation">.</span>port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span>
+  <span class="token function">debug</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Listening on </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>bind<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h3 id="github-action"><a class="header-anchor" href="#github-action" aria-hidden="true">#</a> github action</h3><ul><li>deploy-prd.yml</li></ul><div class="language-yaml"><pre><code><span class="token comment"># This workflow will run tests using node and then publish a package to GitHub Packages when a release is created</span>
+<span class="token comment"># For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages</span>
+<span class="token comment"># github actions 中文文档 https://docs.github.com/cn/actions/getting-started-with-github-actions</span>
+
+<span class="token key atrule">name</span><span class="token punctuation">:</span> deploy production
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token string">&#39;v*.*.*&#39;</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+      <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+
+      <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+          <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Use Node.js
+            <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v1
+            <span class="token key atrule">with</span><span class="token punctuation">:</span>
+                <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">12</span> <span class="token comment"># 尽量和线上机 node 版本保持一直</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> lint and test <span class="token comment"># 测试</span>
+            <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+                npm i
+                npm run lint
+                npm run test:remote</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> set ssh key <span class="token comment"># 临时设置 ssh key</span>
+            <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+                mkdir -p ~/.ssh/
+                echo &quot;${{secrets.ZX_ID_RSA}}&quot; &gt; ~/.ssh/id_rsa # secret 在这里配置 https://github.com/filway/settings/secrets
+                chmod 600 ~/.ssh/id_rsa
+                ssh-keyscan &quot;${{secrets.IPTOC}}&quot; &gt;&gt; ~/.ssh/known_hosts</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> deploy <span class="token comment"># 部署</span>
+            <span class="token key atrule">run</span><span class="token punctuation">:</span> ssh work@$<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.IPTOC<span class="token punctuation">}</span><span class="token punctuation">}</span> &quot;bash <span class="token punctuation">-</span>s&quot; &lt; bin/deploy.sh $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.TOKEN<span class="token punctuation">}</span><span class="token punctuation">}</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>github.ref<span class="token punctuation">}</span><span class="token punctuation">}</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> delete ssh key <span class="token comment"># 删除 ssh key</span>
+            <span class="token key atrule">run</span><span class="token punctuation">:</span> rm <span class="token punctuation">-</span>rf ~/.ssh/id_rsa
+
+</code></pre></div><ul><li>deploy脚本</li></ul><div class="language-shell"><pre><code><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># 执行时需传入两个参数：参数1 - github 密码，参数2 - tag ，如 `sh bin/deploy.sh v1.0.1 xxx`</span>
+<span class="token comment"># shell 代码中使用 $1 $2 即可依次获取参数</span>
+
+<span class="token assign-left variable">teamPath</span><span class="token operator">=</span><span class="token string">&quot;/home/work/xxx-team&quot;</span> <span class="token comment"># team 目录</span>
+<span class="token assign-left variable">repoPath</span><span class="token operator">=</span><span class="token string">&quot;/home/work/xxx-team/repo&quot;</span> <span class="token comment"># 项目目录，要和 repo 同名！！！</span>
+<span class="token assign-left variable">repoGitUrl</span><span class="token operator">=</span><span class="token string">&quot;https://<span class="token variable">$1</span>@github.com/username/repo.git&quot;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -d <span class="token string">&quot;<span class="token variable">$teamPath</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment"># 如果 team 目录不存在，则创建</span>
+  <span class="token builtin class-name">echo</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> <span class="token function">mkdir</span> <span class="token string">&quot;<span class="token variable">$teamPath</span>&quot;</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+  <span class="token function">mkdir</span> <span class="token string">&quot;<span class="token variable">$teamPath</span>&quot;</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">cd</span> <span class="token string">&quot;<span class="token variable">$teamPath</span>&quot;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -d <span class="token string">&quot;<span class="token variable">$repoPath</span>&quot;</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+  <span class="token comment">## 如果 repo 目录不存在，则 git clone （私有项目，需要 github 用户名和密码）</span>
+  <span class="token builtin class-name">echo</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> <span class="token function">git</span> clone start <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+  <span class="token function">git</span> clone <span class="token string">&quot;<span class="token variable">$repoGitUrl</span>&quot;</span>
+  <span class="token function">git</span> remote remove origin<span class="token punctuation">;</span> <span class="token comment"># 删除 origin ，否则会暴露 github 密码</span>
+  <span class="token builtin class-name">echo</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> <span class="token function">git</span> clone end <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+<span class="token keyword">fi</span><span class="token punctuation">;</span>
+<span class="token builtin class-name">cd</span> <span class="token string">&quot;<span class="token variable">$repoPath</span>&quot;</span>
+
+<span class="token function">git</span> checkout <span class="token builtin class-name">.</span> <span class="token comment"># 撤销一切文件改动，否则可能导致 pull 失败</span>
+
+<span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token string">&quot;<span class="token variable">$repoGitUrl</span>&quot;</span>
+<span class="token function">git</span> pull origin master <span class="token comment"># 下载最新 master 代码，tag 都是基于 master 分支提交的</span>
+<span class="token function">git</span> fetch --tags <span class="token comment"># 获取所有 tags 。否则，光执行 git pull origin master 获取不到新提交的 tag</span>
+<span class="token function">git</span> remote remove origin<span class="token punctuation">;</span> <span class="token comment"># 删除 origin ，否则会暴露 github 密码</span>
+
+<span class="token comment"># 切换到 tag ，重要！！！</span>
+<span class="token function">git</span> checkout <span class="token string">&quot;<span class="token variable">$2</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> <span class="token function">git</span> checkout <span class="token string">&quot;<span class="token variable">$2</span>&quot;</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+
+<span class="token comment"># 安装依赖</span>
+<span class="token function">npm</span> <span class="token function">install</span> --registry<span class="token operator">=</span>https://registry.npm.taobao.org
+
+<span class="token comment">## 运行/重启 服务</span>
+<span class="token function">npm</span> run prd
+
+<span class="token comment">## 心跳检测</span>
+<span class="token function">npm</span> run heart-beat-check
+
+<span class="token builtin class-name">echo</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span> deploy success <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+
+</code></pre></div></div><div class="links-wrapper" data-v-2001909f><div class="prev-link"><!----></div><div class="next-link"><!----></div></div><div data-v-2001909f><!-- <footer class="page-edit">
+      <a v-for="(item, index) in data.platform" :key="index" :href="item.href">
+        <img class="imgIcon" :src="item.icon" />
+      </a>
+    </footer>
+    <p class="platform">
+      以上皆为
+      <a href="javascript:;">filway</a> 文章发布平台
+    </p> --><p class="platform"> Copyright © 2022 <a href="https://github.com/filway">@filway</a></p></div><!--[--><!--[--><!--]--><!--]--></div><!-- 只想点击背景才关闭 请使用 .self 修饰符 --><div style="display:none;" class="imgBox"><img src=""></div><!--]--></main><div class="theme-select" data-v-2001909f><ul data-v-2001909f><li class="active" data-v-2001909f>☀️</li><li class="" data-v-2001909f> 🌑 </li></ul></div></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"README.md\":\"2e65a390\",\"index.md\":\"24b4a4f5\",\"more_Friendship.md\":\"d2876e3a\",\"more_docs.md\":\"ebd8a007\",\"more_index.md\":\"eea42c42\",\"more_tags.md\":\"56225e8d\",\"docs_eggjs_01.md\":\"0c37f3f1\",\"docs_layout_css_file.md\":\"85982670\",\"docs_layout_css_method.md\":\"cbc9b0aa\",\"docs_layout_mobile.md\":\"283bc33a\",\"docs_layout_restore-ui-design.md\":\"ed12e8ec\",\"docs_notes_acme-sh.md\":\"14638dbb\",\"docs_notes_deploy.md\":\"7a12875a\",\"docs_notes_fe-component-platform.md\":\"58caa5e3\",\"docs_notes_gitflow.md\":\"bbd469ff\",\"docs_notes_github-page.md\":\"4607293d\",\"docs_notes_nginx.md\":\"2bf1ea7a\",\"docs_notes_nodebestpractices.md\":\"3d7936ac\",\"docs_notes_safe.md\":\"86b089da\",\"docs_notes_vue-router-next.md\":\"6a55b7ab\",\"docs_Front_arch_week2_02.md\":\"82c85a66\",\"docs_Front_arch_week2_03.md\":\"b6fa1186\",\"docs_Front_arch_week2_04.md\":\"15793429\",\"docs_Front_arch_week2_05.md\":\"92fae1d2\",\"docs_Front_arch_week2_06.md\":\"22ddbd19\",\"docs_Front_arch_week2_07.md\":\"f631c0d2\",\"docs_Front_arch_week2_08.md\":\"d1c3eb87\",\"docs_Front_arch_week28_01.md\":\"47bdb0e5\",\"docs_Front_arch_week28_02.md\":\"602ff39d\",\"docs_Front_arch_week29_01.md\":\"cf8f7317\",\"docs_Front_arch_week29_02.md\":\"d04d10be\",\"docs_Front_arch_week29_03.md\":\"3326cf78\",\"docs_Front_arch_week3_00.md\":\"7cb44c8b\",\"docs_Front_arch_week3_01.md\":\"a0a1e104\",\"docs_Front_arch_week3_02.md\":\"467bc5b9\",\"docs_Front_arch_week3_03.md\":\"3bfc7187\",\"docs_Front_arch_week3_04.md\":\"1ec10ebe\",\"docs_Front_arch_week3_05.md\":\"dd5e8b82\",\"docs_Front_arch_week4_01.md\":\"bdf8ba77\",\"docs_Front_arch_week4_02.md\":\"4fc16982\",\"docs_Front_arch_week4_03.md\":\"3b6d4b16\",\"docs_Front_arch_week4_04.md\":\"d161730c\",\"docs_Front_arch_week5_01.md\":\"e43ca2e0\",\"docs_Front_arch_week5_02.md\":\"ccdfbdc1\",\"docs_Front_arch_week5_03.md\":\"17b683e8\",\"docs_Front_arch_week6_01.md\":\"0e39e888\",\"docs_Front_arch_week6_02.md\":\"5090277a\",\"docs_Front_arch_week6_03.md\":\"cdfb7f74\",\"docs_Front_arch_week9-xmdj_dx.md\":\"4c6f8c1f\",\"docs_Front_arch_week9-xmdj_qdgjl.md\":\"de48b220\",\"docs_Front_arch_week9-xmdj_xmdj.md\":\"62dd31c6\",\"docs_front_monitoring_js_lib_quick_start.md\":\"dd42b3b4\",\"docs_notes_Flutter_APP_homepage.md\":\"b4abb40f\",\"docs_notes_Flutter_animation.md\":\"eecd9bf9\",\"docs_notes_Flutter_error.md\":\"507623f5\",\"docs_notes_Flutter_expansion_tile.md\":\"e949a657\",\"docs_notes_Flutter_future.md\":\"29ed49cc\",\"docs_notes_Flutter_gridview.md\":\"b2dc7331\",\"docs_notes_Flutter_http.md\":\"e85ebf18\",\"docs_notes_Flutter_image_widget.md\":\"73eec2f8\",\"docs_notes_Flutter_json.md\":\"f9f2cb3f\",\"docs_notes_Flutter_list_pulldown.md\":\"a70a525a\",\"docs_notes_Flutter_list_view.md\":\"9fbac573\",\"docs_notes_Flutter_shared_preferences.md\":\"e89528fd\"}")</script>
+    <script type="module" async src="/_assets/app.0612fb83.js"></script>
+  </body>
+</html>

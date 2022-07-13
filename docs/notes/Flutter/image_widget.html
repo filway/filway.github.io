@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      图片控件开发详解 | filway
+    </title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/_assets/style.6c30fbeb.css">
+    <link rel="modulepreload" href="/_assets/common-bec3f312.js">
+    <link rel="modulepreload" href="/_assets/docs_notes_Flutter_image_widget.md.73eec2f8.lean.js">
+    <link rel="modulepreload" href="/_assets/app.0612fb83.js">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="filway,技术博客,记录日常">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css">
+    <script src="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.21.1/axios.js"></script>
+    <script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6346362766172412" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div id="containerColor" class="no-sidebar theme" data-v-2001909f><header class="navbar" data-v-2001909f><!--[--><a class="title" aria-label="filway, back to home" href="/"><img class="logo" src="/favicon.ico" alt="logo"><span>filway</span></a><div class="flex-grow"></div><nav class="nav-links hide-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><!--]--><div class="sidebar-button" data-v-2001909f><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div></header><aside class="" data-v-2001909f><!--[--><nav class="nav-links show-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><ul class="sidebar"><!--[--><!--]--></ul><!--[--><!--[--><!--]--><!--]--><!--]--></aside><!----><!-- TODO: make this button accessible --><div class="sidebar-mask" data-v-2001909f></div><main data-v-2001909f><!--[--><div class="content"><!--[--><!--[--><!--]--><!--]--><div class="md-header"><div class="md-title">图片控件开发详解</div><span id="jinrishici-sentence">正在加载今日诗词....</span><div class="md-date">2022-04-10</div></div><ul class="catalog"><!--[--><li class="catalog-item"><a class="level level-2" href="#图片控件开发详解">图片控件开发详解</a><!----></li><li class="catalog-item"><a class="level level-2" href="#image-widget">Image widget</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#image支持如下几种类型的构造函数：">Image支持如下几种类型的构造函数：</a></li><li class="catalog-item"><!----><a class="level level-3" href="#image支持的图片格式">Image支持的图片格式</a></li><li class="catalog-item"><a class="level level-2" href="#如何加载网络图片？">如何加载网络图片？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#如何加载静态图片，以及处理不同分辨率的图片？">如何加载静态图片，以及处理不同分辨率的图片？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#如何加载本地图片？">如何加载本地图片？</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#加载完整路径的本地图片">加载完整路径的本地图片</a></li><li class="catalog-item"><!----><a class="level level-3" href="#加载相对路径的本地图片">加载相对路径的本地图片</a></li><li class="catalog-item"><a class="level level-2" href="#如何设置placeholder">如何设置placeholder?</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#从内存中加载placeholder">从内存中加载placeholder</a></li><li class="catalog-item"><!----><a class="level level-3" href="#从本地资源中加载placeholder">从本地资源中加载placeholder</a></li><li class="catalog-item"><a class="level level-2" href="#如何配置图片缓存？">如何配置图片缓存？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#如何加载icon？">如何加载Icon？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#使用icons">使用Icons</a><!----></li><li class="catalog-item"><a class="level level-2" href="#使用自定义的icon">使用自定义的Icon</a><!----></li><!--]--></ul><div data-v-2001909f><h2 id="图片控件开发详解"><a class="header-anchor" href="#图片控件开发详解" aria-hidden="true">#</a> 图片控件开发详解</h2><ul><li>Image widget</li><li>如何加载网络图片？</li><li>如何加载静态图片？</li><li>如何加载本地图片？</li><li>如何设置Placeholder?</li><li>如何配置图片缓存？</li><li>如何加载Icon？</li></ul><h2 id="image-widget"><a class="header-anchor" href="#image-widget" aria-hidden="true">#</a> Image widget</h2><p>Flutter中一个用来展示图片的widget。</p><h3 id="image支持如下几种类型的构造函数："><a class="header-anchor" href="#image支持如下几种类型的构造函数：" aria-hidden="true">#</a> Image支持如下几种类型的构造函数：</h3><ul><li><a href="https://docs.flutter.io/flutter/widgets/Image/Image.html" target="_blank" rel="noopener noreferrer">new Image</a> - 用于从ImageProvider获取图像；</li><li><a href="https://docs.flutter.io/flutter/widgets/Image/Image.asset.html" target="_blank" rel="noopener noreferrer">new Image.asset</a> - 使用key 从AssetBundle获得的图像；</li><li><a href="https://docs.flutter.io/flutter/widgets/Image/Image.network.html" target="_blank" rel="noopener noreferrer">new Image.network</a> - 从网络URL中获取图片；</li><li><a href="https://docs.flutter.io/flutter/widgets/Image/Image.file.html" target="_blank" rel="noopener noreferrer">new Image.file</a> - 从本地文件中获取图片；</li><li><a href="https://docs.flutter.io/flutter/widgets/Image/Image.memory.html" target="_blank" rel="noopener noreferrer">new Image.memory</a> - 用于从Uint8List获取图像；</li></ul><blockquote><p>在加载项目中的图片资源时，为了让Image能够根据像素密度自动适配不同分辨率的图片，请使用<code>AssetImage</code>指定图像，并确保在widget树中的“Image” widget上方存在<code>MaterialApp</code>，<code>WidgetsApp</code>或<code>MediaQuery</code>窗口widget。</p></blockquote><h3 id="image支持的图片格式"><a class="header-anchor" href="#image支持的图片格式" aria-hidden="true">#</a> Image支持的图片格式</h3><p>Image 支持以下类型的图片：JPEG, PNG, GIF, Animated GIF, WebP, Animated WebP, BMP, 和 WBMP。</p><h2 id="如何加载网络图片？"><a class="header-anchor" href="#如何加载网络图片？" aria-hidden="true">#</a> 如何加载网络图片？</h2><p>要加载网络图片，我们需要使用<code>Image.network</code>构造方法：</p><div class="language-dart"><pre><code>Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>
+  <span class="token string">&#39;http://www.devio.org/img/avatar.png&#39;</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><blockquote><p>demo:</p></blockquote><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string">&#39;Flutter bottomNavigationBar&#39;</span><span class="token punctuation">,</span>
+      theme<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">ThemeData<span class="token punctuation">.</span>fallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> Image<span class="token punctuation">.</span><span class="token function">network</span><span class="token punctuation">(</span>
+        <span class="token string">&#39;http://www.devio.org/img/avatar.png&#39;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="如何加载静态图片，以及处理不同分辨率的图片？"><a class="header-anchor" href="#如何加载静态图片，以及处理不同分辨率的图片？" aria-hidden="true">#</a> 如何加载静态图片，以及处理不同分辨率的图片？</h2><p>要加载项目中的静态图片，需要一些两步：</p><ul><li>在 pubspec.yaml 文件中声明图片资源的路径；</li><li>使用<code>AssetImage</code>访问图片；</li></ul><p>pubspec.yaml声明图片路径：</p><div class="language-yaml"><pre><code><span class="token key atrule">assets</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> images/my_icon.png
+</code></pre></div><p>使用<code>AssetImage</code>访问图片图片：</p><div class="language-dart"><pre><code><span class="token function">Image</span><span class="token punctuation">(</span>
+  height<span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span>
+  width<span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span>
+  image<span class="token punctuation">:</span> <span class="token function">AssetImage</span><span class="token punctuation">(</span>my_icon<span class="token punctuation">.</span>png<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre></div><p>除了我们使用Image的构造方法手动指定AssetImage之外，还可通过<code>Image.asset</code>来加载静态图片：</p><div class="language-dart"><pre><code>Image<span class="token punctuation">.</span><span class="token function">asset</span><span class="token punctuation">(</span>my_icon<span class="token punctuation">.</span>png<span class="token punctuation">,</span>
+	width<span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span>
+	height<span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><p>两者是等效的。</p><p>/sdcard/Download/Stack.png</p><h2 id="如何加载本地图片？"><a class="header-anchor" href="#如何加载本地图片？" aria-hidden="true">#</a> 如何加载本地图片？</h2><h3 id="加载完整路径的本地图片"><a class="header-anchor" href="#加载完整路径的本地图片" aria-hidden="true">#</a> 加载完整路径的本地图片</h3><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;dart:io&#39;</span><span class="token punctuation">;</span>
+Image<span class="token punctuation">.</span><span class="token function">file</span><span class="token punctuation">(</span><span class="token function">File</span><span class="token punctuation">(</span><span class="token string">&#39;/sdcard/Download/Stack.png&#39;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="加载相对路径的本地图片"><a class="header-anchor" href="#加载相对路径的本地图片" aria-hidden="true">#</a> 加载相对路径的本地图片</h3><blockquote><p>第一步：</p></blockquote><p>在pubspec.yaml中添加<a href="https://pub.dartlang.org/packages/path_provider" target="_blank" rel="noopener noreferrer">path_provider</a>插件；</p><blockquote><p>第二步：导入头文件</p></blockquote><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;dart:io&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:path_provider/path_provider.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token comment">//Image.file(File(&#39;/sdcard/Download/Stack.png&#39;)),</span>
+<span class="token function">FutureBuilder</span><span class="token punctuation">(</span>future<span class="token punctuation">:</span> <span class="token function">_getLocalFile</span><span class="token punctuation">(</span><span class="token string">&quot;Download/Stack.png&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  builder<span class="token punctuation">:</span>  <span class="token punctuation">(</span>BuildContext context<span class="token punctuation">,</span> AsyncSnapshot<span class="token operator">&lt;</span>File<span class="token operator">&gt;</span> snapshot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> snapshot<span class="token punctuation">.</span>data <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> Image<span class="token punctuation">.</span><span class="token function">file</span><span class="token punctuation">(</span>snapshot<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">Container</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token comment">//获取SDCard的路径：</span>
+ Future<span class="token operator">&lt;</span>File<span class="token operator">&gt;</span> <span class="token function">_getLocalFile</span><span class="token punctuation">(</span>String filename<span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+    String dir <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">await</span> <span class="token function">getExternalStorageDirectory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>path<span class="token punctuation">;</span>
+    File f <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">&#39;$dir/$filename&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> f<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h2 id="如何设置placeholder"><a class="header-anchor" href="#如何设置placeholder" aria-hidden="true">#</a> 如何设置placeholder?</h2><p>为了设置Placeholder我们需要借助<a href="https://docs.flutter.io/flutter/widgets/FadeInImage-class.html" target="_blank" rel="noopener noreferrer">FadeInImage</a>，它能够从内存，本地资源中加载placeholder。</p><h3 id="从内存中加载placeholder"><a class="header-anchor" href="#从内存中加载placeholder" aria-hidden="true">#</a> 从内存中加载placeholder</h3><blockquote><p>第一步：</p></blockquote><p>安装<a href="https://pub.dartlang.org/packages/transparent_image" target="_blank" rel="noopener noreferrer">transparent_image</a>插件。</p><blockquote><p>第二步：</p></blockquote><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:transparent_image/transparent_image.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> title <span class="token operator">=</span> <span class="token string">&#39;Fade in images&#39;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> title<span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token function">Stack</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token function">Center</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token function">CircularProgressIndicator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Center</span><span class="token punctuation">(</span>
+              child<span class="token punctuation">:</span> FadeInImage<span class="token punctuation">.</span><span class="token function">memoryNetwork</span><span class="token punctuation">(</span>
+                placeholder<span class="token punctuation">:</span> kTransparentImage<span class="token punctuation">,</span>
+                image<span class="token punctuation">:</span> <span class="token string">&#39;http://www.devio.org/img/avatar.png&#39;</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="从本地资源中加载placeholder"><a class="header-anchor" href="#从本地资源中加载placeholder" aria-hidden="true">#</a> 从本地资源中加载placeholder</h3><blockquote><p>第一步</p></blockquote><p>配置本地资源图片：</p><div class="language-yaml"><pre><code> <span class="token key atrule">flutter</span><span class="token punctuation">:</span>
+   <span class="token key atrule">assets</span><span class="token punctuation">:</span>
+    	<span class="token punctuation">-</span> assets/loading.gif
+</code></pre></div><blockquote><p>第二步</p></blockquote><p>加载本地资源图片作为placeholder：</p><div class="language-dart"><pre><code>FadeInImage<span class="token punctuation">.</span><span class="token function">assetNetwork</span><span class="token punctuation">(</span>
+  placeholder<span class="token punctuation">:</span> <span class="token string">&#39;assets/loading.gif&#39;</span><span class="token punctuation">,</span>
+  image<span class="token punctuation">:</span> <span class="token string">&#39;http://www.devio.org/img/avatar.png&#39;</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="如何配置图片缓存？"><a class="header-anchor" href="#如何配置图片缓存？" aria-hidden="true">#</a> 如何配置图片缓存？</h2><p>在Flutter中我们可以借助<a href="https://pub.dartlang.org/packages/cached_network_image" target="_blank" rel="noopener noreferrer">cached_network_image</a>插件，来从网络上加载图片，并且将其缓存到本地，以供下次使用。</p><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:cached_network_image/cached_network_image.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> title <span class="token operator">=</span> <span class="token string">&#39;Cached Images&#39;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> title<span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+        appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+          title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+          child<span class="token punctuation">:</span> <span class="token function">CachedNetworkImage</span><span class="token punctuation">(</span>
+            placeholder<span class="token punctuation">:</span> <span class="token punctuation">(</span>context<span class="token punctuation">,</span> url<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">CircularProgressIndicator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            imageUrl<span class="token punctuation">:</span>
+                <span class="token string">&#39;https://picsum.photos/250?image=9&#39;</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>关于创建<code>图片控件开发详解</code>的更多实战技巧与最佳实践可学习<a href="https://coding.imooc.com/class/321.html" target="_blank" rel="noopener noreferrer">《基于Flutter1.x开发携程网App》</a>。</p></blockquote><h2 id="如何加载icon？"><a class="header-anchor" href="#如何加载icon？" aria-hidden="true">#</a> 如何加载Icon？</h2><p>在Flutter中我们可以借助<a href="https://docs.flutter.io/flutter/widgets/Icon-class.html" target="_blank" rel="noopener noreferrer">Icon</a>来加载icon：</p><div class="language-dart"><pre><code><span class="token keyword">const</span> <span class="token function">Icon</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>icon<span class="token comment">//IconDate, {</span>
+   Key key<span class="token punctuation">,</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>size<span class="token punctuation">,</span><span class="token comment">//大小</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>color<span class="token punctuation">,</span><span class="token comment">//颜色</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>semanticLabel<span class="token punctuation">,</span><span class="token comment">//标志位</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>textDirection<span class="token punctuation">,</span><span class="token comment">//绘制方向，一般使用不到</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>从Icon的构造方法可以很清楚的看出Icon构造方法需要一个默认的类型为IconData类型的参数，我们可以构造一个自己的IconData，也可以使用Flutter提供的<a href="https://design.google.com/icons/" target="_blank" rel="noopener noreferrer">material_fonts</a>。</p><h2 id="使用icons"><a class="header-anchor" href="#使用icons" aria-hidden="true">#</a> 使用Icons</h2><p>通过如下代码我们可以使用Flutter内置的<a href="https://design.google.com/icons/" target="_blank" rel="noopener noreferrer">material_fonts</a>：</p><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MaterialApp</span><span class="token punctuation">(</span>home<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// TODO: implement build</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string">&quot;Icons&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Icon</span><span class="token punctuation">(</span>Icons<span class="token punctuation">.</span>android<span class="token punctuation">,</span>size<span class="token punctuation">:</span> <span class="token number">100.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="使用自定义的icon"><a class="header-anchor" href="#使用自定义的icon" aria-hidden="true">#</a> 使用自定义的Icon</h2><p>使用自定义的我们需要构造一个：</p><div class="language-dart"><pre><code><span class="token keyword">const</span> <span class="token function">IconData</span><span class="token punctuation">(</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>codePoint<span class="token punctuation">,</span><span class="token comment">//必填参数，fonticon对应的16进制Unicode {</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>fontFamily<span class="token punctuation">,</span><span class="token comment">//字体库系列</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>fontPackage<span class="token punctuation">,</span><span class="token comment">//字体在那个包中，不填仅在自己程序包中查找</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>matchTextDirection<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//图标是否按照图标绘制方向显示</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>首先我我们需要向使用字体一样，在pubspec.yaml中配置我们的icon：</p><div class="language-yaml"><pre><code><span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+	<span class="token punctuation">-</span> <span class="token key atrule">family</span><span class="token punctuation">:</span> devio
+	  <span class="token key atrule">fonts</span><span class="token punctuation">:</span>
+	    <span class="token punctuation">-</span> <span class="token key atrule">asset</span><span class="token punctuation">:</span> fonts/devio.ttf
+</code></pre></div><p>接下来就可以使用了：</p><div class="language-dar"><pre><code>child: new Icon(new IconData(0xf5566,fontFamily: &quot;devio&quot;),size: 100.0,color: Colors.blueAccent,)
+</code></pre></div></div><div class="links-wrapper" data-v-2001909f><div class="prev-link"><!----></div><div class="next-link"><!----></div></div><div data-v-2001909f><!-- <footer class="page-edit">
+      <a v-for="(item, index) in data.platform" :key="index" :href="item.href">
+        <img class="imgIcon" :src="item.icon" />
+      </a>
+    </footer>
+    <p class="platform">
+      以上皆为
+      <a href="javascript:;">filway</a> 文章发布平台
+    </p> --><p class="platform"> Copyright © 2022 <a href="https://github.com/filway">@filway</a></p></div><!--[--><!--[--><!--]--><!--]--></div><!-- 只想点击背景才关闭 请使用 .self 修饰符 --><div style="display:none;" class="imgBox"><img src=""></div><!--]--></main><div class="theme-select" data-v-2001909f><ul data-v-2001909f><li class="active" data-v-2001909f>☀️</li><li class="" data-v-2001909f> 🌑 </li></ul></div></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"README.md\":\"2e65a390\",\"index.md\":\"24b4a4f5\",\"more_Friendship.md\":\"d2876e3a\",\"more_docs.md\":\"ebd8a007\",\"more_index.md\":\"eea42c42\",\"more_tags.md\":\"56225e8d\",\"docs_eggjs_01.md\":\"0c37f3f1\",\"docs_layout_css_file.md\":\"85982670\",\"docs_layout_css_method.md\":\"cbc9b0aa\",\"docs_layout_mobile.md\":\"283bc33a\",\"docs_layout_restore-ui-design.md\":\"ed12e8ec\",\"docs_notes_acme-sh.md\":\"14638dbb\",\"docs_notes_deploy.md\":\"7a12875a\",\"docs_notes_fe-component-platform.md\":\"58caa5e3\",\"docs_notes_gitflow.md\":\"bbd469ff\",\"docs_notes_github-page.md\":\"4607293d\",\"docs_notes_nginx.md\":\"2bf1ea7a\",\"docs_notes_nodebestpractices.md\":\"3d7936ac\",\"docs_notes_safe.md\":\"86b089da\",\"docs_notes_vue-router-next.md\":\"6a55b7ab\",\"docs_Front_arch_week2_02.md\":\"82c85a66\",\"docs_Front_arch_week2_03.md\":\"b6fa1186\",\"docs_Front_arch_week2_04.md\":\"15793429\",\"docs_Front_arch_week2_05.md\":\"92fae1d2\",\"docs_Front_arch_week2_06.md\":\"22ddbd19\",\"docs_Front_arch_week2_07.md\":\"f631c0d2\",\"docs_Front_arch_week2_08.md\":\"d1c3eb87\",\"docs_Front_arch_week28_01.md\":\"47bdb0e5\",\"docs_Front_arch_week28_02.md\":\"602ff39d\",\"docs_Front_arch_week29_01.md\":\"cf8f7317\",\"docs_Front_arch_week29_02.md\":\"d04d10be\",\"docs_Front_arch_week29_03.md\":\"3326cf78\",\"docs_Front_arch_week3_00.md\":\"7cb44c8b\",\"docs_Front_arch_week3_01.md\":\"a0a1e104\",\"docs_Front_arch_week3_02.md\":\"467bc5b9\",\"docs_Front_arch_week3_03.md\":\"3bfc7187\",\"docs_Front_arch_week3_04.md\":\"1ec10ebe\",\"docs_Front_arch_week3_05.md\":\"dd5e8b82\",\"docs_Front_arch_week4_01.md\":\"bdf8ba77\",\"docs_Front_arch_week4_02.md\":\"4fc16982\",\"docs_Front_arch_week4_03.md\":\"3b6d4b16\",\"docs_Front_arch_week4_04.md\":\"d161730c\",\"docs_Front_arch_week5_01.md\":\"e43ca2e0\",\"docs_Front_arch_week5_02.md\":\"ccdfbdc1\",\"docs_Front_arch_week5_03.md\":\"17b683e8\",\"docs_Front_arch_week6_01.md\":\"0e39e888\",\"docs_Front_arch_week6_02.md\":\"5090277a\",\"docs_Front_arch_week6_03.md\":\"cdfb7f74\",\"docs_Front_arch_week9-xmdj_dx.md\":\"4c6f8c1f\",\"docs_Front_arch_week9-xmdj_qdgjl.md\":\"de48b220\",\"docs_Front_arch_week9-xmdj_xmdj.md\":\"62dd31c6\",\"docs_front_monitoring_js_lib_quick_start.md\":\"dd42b3b4\",\"docs_notes_Flutter_APP_homepage.md\":\"b4abb40f\",\"docs_notes_Flutter_animation.md\":\"eecd9bf9\",\"docs_notes_Flutter_error.md\":\"507623f5\",\"docs_notes_Flutter_expansion_tile.md\":\"e949a657\",\"docs_notes_Flutter_future.md\":\"29ed49cc\",\"docs_notes_Flutter_gridview.md\":\"b2dc7331\",\"docs_notes_Flutter_http.md\":\"e85ebf18\",\"docs_notes_Flutter_image_widget.md\":\"73eec2f8\",\"docs_notes_Flutter_json.md\":\"f9f2cb3f\",\"docs_notes_Flutter_list_pulldown.md\":\"a70a525a\",\"docs_notes_Flutter_list_view.md\":\"9fbac573\",\"docs_notes_Flutter_shared_preferences.md\":\"e89528fd\"}")</script>
+    <script type="module" async src="/_assets/app.0612fb83.js"></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      JSON解析与复杂模型转换实用技巧 | filway
+    </title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/_assets/style.6c30fbeb.css">
+    <link rel="modulepreload" href="/_assets/common-bec3f312.js">
+    <link rel="modulepreload" href="/_assets/docs_notes_Flutter_json.md.f9f2cb3f.lean.js">
+    <link rel="modulepreload" href="/_assets/app.0612fb83.js">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="filway,技术博客,记录日常">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css">
+    <script src="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.21.1/axios.js"></script>
+    <script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6346362766172412" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div id="containerColor" class="no-sidebar theme" data-v-2001909f><header class="navbar" data-v-2001909f><!--[--><a class="title" aria-label="filway, back to home" href="/"><img class="logo" src="/favicon.ico" alt="logo"><span>filway</span></a><div class="flex-grow"></div><nav class="nav-links hide-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><!--]--><div class="sidebar-button" data-v-2001909f><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div></header><aside class="" data-v-2001909f><!--[--><nav class="nav-links show-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><ul class="sidebar"><!--[--><!--]--></ul><!--[--><!--[--><!--]--><!--]--><!--]--></aside><!----><!-- TODO: make this button accessible --><div class="sidebar-mask" data-v-2001909f></div><main data-v-2001909f><!--[--><div class="content"><!--[--><!--[--><!--]--><!--]--><div class="md-header"><div class="md-title">JSON解析与复杂模型转换实用技巧</div><span id="jinrishici-sentence">正在加载今日诗词....</span><div class="md-date">2022-04-13</div></div><ul class="catalog"><!--[--><li class="catalog-item"><a class="level level-2" href="#json解析与复杂模型转换实用技巧">JSON解析与复杂模型转换实用技巧</a><!----></li><li class="catalog-item"><a class="level level-2" href="#我该用什么json序列化方式？">我该用什么JSON序列化方式？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#如何反序列化？">如何反序列化？</a><!----></li><li class="catalog-item"><a class="level level-2" href="#复杂json解析？">复杂JSON解析？</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#如何解析对象中的数组？">如何解析对象中的数组？</a></li><li class="catalog-item"><a class="level level-2" href="#提升效率：在线转换json-to-dart？">提升效率：在线转换JSON TO Dart？</a><!----></li><!--]--></ul><div data-v-2001909f><h2 id="json解析与复杂模型转换实用技巧"><a class="header-anchor" href="#json解析与复杂模型转换实用技巧" aria-hidden="true">#</a> JSON解析与复杂模型转换实用技巧</h2><ul><li>应该是有那种JSON序列化方式？</li><li>如何序列化？</li><li>复杂JSON解析？</li><li>提升效率：在线转换JSON TO Dart？</li></ul><p>JSON是一种轻量级的数据交换语言，在网络编程中大量的用到了JSON来作为传输数据的格式，那么在Flutter中是如何处理JSON数据，以及JSON数据处理有那些实用技巧呢？</p><h2 id="我该用什么json序列化方式？"><a class="header-anchor" href="#我该用什么json序列化方式？" aria-hidden="true">#</a> 我该用什么JSON序列化方式？</h2><ul><li>小型项目：手动序列化；</li><li>大型项目：借助插件生成<a href="https://pub.dartlang.org/packages/json_serializable" target="_blank" rel="noopener noreferrer">json_serializable</a>和<a href="https://pub.dartlang.org/packages/built_value" target="_blank" rel="noopener noreferrer">built_value</a>；</li></ul><blockquote><p>其实大型项目使用手动+借助下面提到的<a href="http://www.devio.org/io/tools/json-to-dart/" target="_blank" rel="noopener noreferrer">在线转换</a>的方式更加灵活高效；</p></blockquote><h2 id="如何反序列化？"><a class="header-anchor" href="#如何反序列化？" aria-hidden="true">#</a> 如何反序列化？</h2><div class="language-dart"><pre><code>String jsonStr <span class="token operator">=</span> <span class="token string">&#39;{ &quot;icon&quot;: &quot;http://www.devio.org/io/flutter_app/img/ln_food.png&quot;, &quot;title&quot;: &quot;美食林&quot;, &quot;url&quot;: &quot;https://m.ctrip.com/webapp/you/foods/address.html?new=1&amp;ishideheader=true&quot;, &quot;statusBarColor&quot;: &quot;19A0F0&quot;, &quot;hideAppBar&quot;: true }&#39;</span><span class="token punctuation">;</span>
+Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token keyword">dynamic</span><span class="token operator">&gt;</span> map <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>jsonStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&#39;icon： ${map[&#39;</span>icon<span class="token string">&#39;]}&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&#39;title：${map[&#39;</span>title<span class="token string">&#39;]}&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>通过上述方式可以将json字符串转换成Map，但Map中存放那些字段在使用的时候很不方便，如果将<code>Map&lt;String, dynamic&gt;</code>转成Model呢？</p><div class="language-dart"><pre><code><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+CommonModel model <span class="token operator">=</span> CommonModel<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&#39;icon： ${model.icon}&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">&#39;title：${model.title}&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">class</span> <span class="token class-name">CommonModel</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> String icon<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> String title<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> String url<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> String statusBarColor<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> bool hideAppBar<span class="token punctuation">;</span>
+
+  <span class="token function">CommonModel</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>icon<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>url<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>statusBarColor<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>hideAppBar<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">factory</span> CommonModel<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token keyword">dynamic</span><span class="token operator">&gt;</span> json<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">CommonModel</span><span class="token punctuation">(</span>
+      icon<span class="token punctuation">:</span> json<span class="token punctuation">[</span><span class="token string">&#39;icon&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> json<span class="token punctuation">[</span><span class="token string">&#39;title&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      url<span class="token punctuation">:</span> json<span class="token punctuation">[</span><span class="token string">&#39;url&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      statusBarColor<span class="token punctuation">:</span> json<span class="token punctuation">[</span><span class="token string">&#39;statusBarColor&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      hideAppBar<span class="token punctuation">:</span> json<span class="token punctuation">[</span><span class="token string">&#39;hideAppBar&#39;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>这样一来我们就可以很明确的指导model中有那些字段。</p></blockquote><h2 id="复杂json解析？"><a class="header-anchor" href="#复杂json解析？" aria-hidden="true">#</a> 复杂JSON解析？</h2><h3 id="如何解析对象中的数组？"><a class="header-anchor" href="#如何解析对象中的数组？" aria-hidden="true">#</a> 如何解析对象中的数组？</h3><div class="language-"><pre><code>{
+  &quot;url&quot;: &quot;xxx&quot;,
+  &quot;tabs&quot;: [
+    {
+      &quot;labelName&quot;: &quot;推荐&quot;,
+      &quot;groupChannelCode&quot;: &quot;tourphoto_global1&quot;
+    },
+    {
+      &quot;labelName&quot;: &quot;拍照技巧&quot;,
+      &quot;groupChannelCode&quot;: &quot;tab-photo&quot;
+    }
+  ]
+}
+</code></pre></div><p>解析：</p><div class="language-dart"><pre><code><span class="token keyword">class</span> <span class="token class-name">TravelTabModel</span> <span class="token punctuation">{</span>
+  String url<span class="token punctuation">;</span>
+  List<span class="token operator">&lt;</span>TravelTab<span class="token operator">&gt;</span> tabs<span class="token punctuation">;</span>
+
+  <span class="token function">TravelTabModel</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>url<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tabs<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  TravelTabModel<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token keyword">dynamic</span><span class="token operator">&gt;</span> json<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	 url <span class="token operator">=</span> json<span class="token punctuation">[</span><span class="token string">&#39;url&#39;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span>json<span class="token punctuation">[</span><span class="token string">&#39;tabs&#39;</span><span class="token punctuation">]</span> <span class="token operator">as</span> List<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> TravelTab<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TravelTab</span> <span class="token punctuation">{</span>
+  String labelName<span class="token punctuation">;</span>
+  String groupChannelCode<span class="token punctuation">;</span>
+
+  <span class="token function">TravelTab</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>labelName<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>groupChannelCode<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  TravelTab<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token keyword">dynamic</span><span class="token operator">&gt;</span> json<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    labelName <span class="token operator">=</span> json<span class="token punctuation">[</span><span class="token string">&#39;labelName&#39;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    groupChannelCode <span class="token operator">=</span> json<span class="token punctuation">[</span><span class="token string">&#39;groupChannelCode&#39;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>如果要加些异常处理：</p></blockquote><div class="language-dart"><pre><code>TravelTabModel<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> <span class="token keyword">dynamic</span><span class="token operator">&gt;</span> json<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    url <span class="token operator">=</span> json<span class="token punctuation">[</span><span class="token string">&#39;url&#39;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>json<span class="token punctuation">[</span><span class="token string">&#39;tabs&#39;</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      tabs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">List</span><span class="token operator">&lt;</span>TravelTab<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      json<span class="token punctuation">[</span><span class="token string">&#39;tabs&#39;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        tabs<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TravelTab<span class="token punctuation">.</span>fromJson</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>改成final：</p></blockquote><div class="language-"><pre><code>class TravelTabModel {
+  final String url;
+  final List&lt;TravelTab&gt; tabs;
+
+  TravelTabModel({this.url, this.tabs});
+
+  factory TravelTabModel.fromJson(Map&lt;String, dynamic&gt; json) {
+    Stringc url = json[&#39;url&#39;];
+    List&lt;TravelTab&gt; tabs =
+        (json[&#39;tabs&#39;] as List).map((i) =&gt; TravelTab.fromJson(i)).toList();
+    return TravelTabModel(url: url, tabs: tabs);
+  }
+}
+</code></pre></div><h2 id="提升效率：在线转换json-to-dart？"><a class="header-anchor" href="#提升效率：在线转换json-to-dart？" aria-hidden="true">#</a> 提升效率：在线转换JSON TO Dart？</h2><ul><li><a href="http://www.devio.org/io/flutter_app/json/home_page.json" target="_blank" rel="noopener noreferrer">home_page.json</a></li><li><a href="http://www.devio.org/io/tools/json-to-dart/" target="_blank" rel="noopener noreferrer"><code>json_to_dart</code></a></li><li><a href="http://json2dart.com/" target="_blank" rel="noopener noreferrer">json2dart</a></li></ul></div><div class="links-wrapper" data-v-2001909f><div class="prev-link"><!----></div><div class="next-link"><!----></div></div><div data-v-2001909f><!-- <footer class="page-edit">
+      <a v-for="(item, index) in data.platform" :key="index" :href="item.href">
+        <img class="imgIcon" :src="item.icon" />
+      </a>
+    </footer>
+    <p class="platform">
+      以上皆为
+      <a href="javascript:;">filway</a> 文章发布平台
+    </p> --><p class="platform"> Copyright © 2022 <a href="https://github.com/filway">@filway</a></p></div><!--[--><!--[--><!--]--><!--]--></div><!-- 只想点击背景才关闭 请使用 .self 修饰符 --><div style="display:none;" class="imgBox"><img src=""></div><!--]--></main><div class="theme-select" data-v-2001909f><ul data-v-2001909f><li class="active" data-v-2001909f>☀️</li><li class="" data-v-2001909f> 🌑 </li></ul></div></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"README.md\":\"2e65a390\",\"index.md\":\"24b4a4f5\",\"more_Friendship.md\":\"d2876e3a\",\"more_docs.md\":\"ebd8a007\",\"more_index.md\":\"eea42c42\",\"more_tags.md\":\"56225e8d\",\"docs_eggjs_01.md\":\"0c37f3f1\",\"docs_layout_css_file.md\":\"85982670\",\"docs_layout_css_method.md\":\"cbc9b0aa\",\"docs_layout_mobile.md\":\"283bc33a\",\"docs_layout_restore-ui-design.md\":\"ed12e8ec\",\"docs_notes_acme-sh.md\":\"14638dbb\",\"docs_notes_deploy.md\":\"7a12875a\",\"docs_notes_fe-component-platform.md\":\"58caa5e3\",\"docs_notes_gitflow.md\":\"bbd469ff\",\"docs_notes_github-page.md\":\"4607293d\",\"docs_notes_nginx.md\":\"2bf1ea7a\",\"docs_notes_nodebestpractices.md\":\"3d7936ac\",\"docs_notes_safe.md\":\"86b089da\",\"docs_notes_vue-router-next.md\":\"6a55b7ab\",\"docs_Front_arch_week2_02.md\":\"82c85a66\",\"docs_Front_arch_week2_03.md\":\"b6fa1186\",\"docs_Front_arch_week2_04.md\":\"15793429\",\"docs_Front_arch_week2_05.md\":\"92fae1d2\",\"docs_Front_arch_week2_06.md\":\"22ddbd19\",\"docs_Front_arch_week2_07.md\":\"f631c0d2\",\"docs_Front_arch_week2_08.md\":\"d1c3eb87\",\"docs_Front_arch_week28_01.md\":\"47bdb0e5\",\"docs_Front_arch_week28_02.md\":\"602ff39d\",\"docs_Front_arch_week29_01.md\":\"cf8f7317\",\"docs_Front_arch_week29_02.md\":\"d04d10be\",\"docs_Front_arch_week29_03.md\":\"3326cf78\",\"docs_Front_arch_week3_00.md\":\"7cb44c8b\",\"docs_Front_arch_week3_01.md\":\"a0a1e104\",\"docs_Front_arch_week3_02.md\":\"467bc5b9\",\"docs_Front_arch_week3_03.md\":\"3bfc7187\",\"docs_Front_arch_week3_04.md\":\"1ec10ebe\",\"docs_Front_arch_week3_05.md\":\"dd5e8b82\",\"docs_Front_arch_week4_01.md\":\"bdf8ba77\",\"docs_Front_arch_week4_02.md\":\"4fc16982\",\"docs_Front_arch_week4_03.md\":\"3b6d4b16\",\"docs_Front_arch_week4_04.md\":\"d161730c\",\"docs_Front_arch_week5_01.md\":\"e43ca2e0\",\"docs_Front_arch_week5_02.md\":\"ccdfbdc1\",\"docs_Front_arch_week5_03.md\":\"17b683e8\",\"docs_Front_arch_week6_01.md\":\"0e39e888\",\"docs_Front_arch_week6_02.md\":\"5090277a\",\"docs_Front_arch_week6_03.md\":\"cdfb7f74\",\"docs_Front_arch_week9-xmdj_dx.md\":\"4c6f8c1f\",\"docs_Front_arch_week9-xmdj_qdgjl.md\":\"de48b220\",\"docs_Front_arch_week9-xmdj_xmdj.md\":\"62dd31c6\",\"docs_front_monitoring_js_lib_quick_start.md\":\"dd42b3b4\",\"docs_notes_Flutter_APP_homepage.md\":\"b4abb40f\",\"docs_notes_Flutter_animation.md\":\"eecd9bf9\",\"docs_notes_Flutter_error.md\":\"507623f5\",\"docs_notes_Flutter_expansion_tile.md\":\"e949a657\",\"docs_notes_Flutter_future.md\":\"29ed49cc\",\"docs_notes_Flutter_gridview.md\":\"b2dc7331\",\"docs_notes_Flutter_http.md\":\"e85ebf18\",\"docs_notes_Flutter_image_widget.md\":\"73eec2f8\",\"docs_notes_Flutter_json.md\":\"f9f2cb3f\",\"docs_notes_Flutter_list_pulldown.md\":\"a70a525a\",\"docs_notes_Flutter_list_view.md\":\"9fbac573\",\"docs_notes_Flutter_shared_preferences.md\":\"e89528fd\"}")</script>
+    <script type="module" async src="/_assets/app.0612fb83.js"></script>
+  </body>
+</html>
