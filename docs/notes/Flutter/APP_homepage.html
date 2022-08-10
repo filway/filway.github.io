@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      APP首页框架搭建 - Scaffold与PageView | filway
+    </title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/_assets/style.6c30fbeb.css">
+    <link rel="modulepreload" href="/_assets/common-bec3f312.js">
+    <link rel="modulepreload" href="/_assets/docs_notes_Flutter_APP_homepage.md.0745ccc8.lean.js">
+    <link rel="modulepreload" href="/_assets/app.d18979ca.js">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="filway,技术博客,记录日常">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css">
+    <script src="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.21.1/axios.js"></script>
+    <script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6346362766172412" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div id="containerColor" class="no-sidebar theme" data-v-2001909f><header class="navbar" data-v-2001909f><!--[--><a class="title" aria-label="filway, back to home" href="/"><img class="logo" src="/favicon.ico" alt="logo"><span>filway</span></a><div class="flex-grow"></div><nav class="nav-links hide-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><!--]--><div class="sidebar-button" data-v-2001909f><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div></header><aside class="" data-v-2001909f><!--[--><nav class="nav-links show-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><ul class="sidebar"><!--[--><!--]--></ul><!--[--><!--[--><!--]--><!--]--><!--]--></aside><!----><!-- TODO: make this button accessible --><div class="sidebar-mask" data-v-2001909f></div><main data-v-2001909f><!--[--><div class="content"><!--[--><!--[--><!--]--><!--]--><div class="md-header"><div class="md-title">APP首页框架搭建 - Scaffold与PageView</div><span id="jinrishici-sentence">正在加载今日诗词....</span><div class="md-date">2022-04-11</div></div><ul class="catalog"><!--[--><li class="catalog-item"><a class="level level-2" href="#app首页框架搭建">APP首页框架搭建</a><!----></li><li class="catalog-item"><a class="level level-2" href="#实现首页导航需要哪些材料">实现首页导航需要哪些材料?</a><!----></li><li class="catalog-item"><a class="level level-2" href="#什么是scaffold-widget？">什么是Scaffold widget？</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#顶部导航">顶部导航</a></li><li class="catalog-item"><!----><a class="level level-3" href="#底部导航菜单">底部导航菜单</a></li><li class="catalog-item"><!----><a class="level level-3" href="#侧拉栏菜单">侧拉栏菜单</a></li><li class="catalog-item"><a class="level level-2" href="#什么是pageview？">什么是PageView？</a><!----></li><!--]--></ul><div data-v-2001909f><h2 id="app首页框架搭建"><a class="header-anchor" href="#app首页框架搭建" aria-hidden="true">#</a> APP首页框架搭建</h2><ul><li>实现首页导航需要哪些材料？</li><li>什么是Scaffold widget？</li><li>什么是PageView？</li><li>实现首页导航</li></ul><h2 id="实现首页导航需要哪些材料"><a class="header-anchor" href="#实现首页导航需要哪些材料" aria-hidden="true">#</a> 实现首页导航需要哪些材料?</h2><ul><li>Scaffold <ul><li>BottomNavigationBar</li></ul></li><li>PageView <ul><li>PageController</li></ul></li></ul><h2 id="什么是scaffold-widget？"><a class="header-anchor" href="#什么是scaffold-widget？" aria-hidden="true">#</a> 什么是Scaffold widget？</h2><p><code>Scaffold</code>是一个实现了基本的<code>material design</code>的布局结构。</p><div class="language-dart"><pre><code><span class="token keyword">class</span> <span class="token class-name">Scaffold</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+  <span class="token comment">/// Creates a visual scaffold for material design widgets.</span>
+  <span class="token keyword">const</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    Key key<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>appBar<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>body<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>floatingActionButton<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>floatingActionButtonLocation<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>floatingActionButtonAnimator<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>persistentFooterButtons<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>drawer<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>endDrawer<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>bottomNavigationBar<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>bottomSheet<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>backgroundColor<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>resizeToAvoidBottomPadding <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>primary <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">assert</span><span class="token punctuation">(</span>primary <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div><h3 id="顶部导航"><a class="header-anchor" href="#顶部导航" aria-hidden="true">#</a> 顶部导航</h3><p><img src="https://oss.filway.cn/filway-blog/tabbed_app_bar_small.png" alt="Tabbed AppBar"></p><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TabbedAppBarSample</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      home<span class="token punctuation">:</span> <span class="token function">DefaultTabController</span><span class="token punctuation">(</span>
+        length<span class="token punctuation">:</span> choices<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+          appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>
+            title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&#39;Tabbed AppBar&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            bottom<span class="token punctuation">:</span> <span class="token function">TabBar</span><span class="token punctuation">(</span>
+              isScrollable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+              tabs<span class="token punctuation">:</span> choices<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Choice choice<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token function">Tab</span><span class="token punctuation">(</span>
+                  text<span class="token punctuation">:</span> choice<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
+                  icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>choice<span class="token punctuation">.</span>icon<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          body<span class="token punctuation">:</span> <span class="token function">TabBarView</span><span class="token punctuation">(</span>
+            children<span class="token punctuation">:</span> choices<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Choice choice<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> <span class="token function">Padding</span><span class="token punctuation">(</span>
+                padding<span class="token punctuation">:</span> <span class="token keyword">const</span> EdgeInsets<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">16.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                child<span class="token punctuation">:</span> <span class="token function">ChoiceCard</span><span class="token punctuation">(</span>choice<span class="token punctuation">:</span> choice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Choice</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>icon<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">final</span> String title<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> IconData icon<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> List<span class="token operator">&lt;</span>Choice<span class="token operator">&gt;</span> choices <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token operator">&lt;</span>Choice<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;CAR&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_car<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;BICYCLE&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_bike<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;BOAT&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_boat<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;BUS&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_bus<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;TRAIN&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_railway<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token keyword">const</span> <span class="token function">Choice</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token string">&#39;WALK&#39;</span><span class="token punctuation">,</span> icon<span class="token punctuation">:</span> Icons<span class="token punctuation">.</span>directions_walk<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">ChoiceCard</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token function">ChoiceCard</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key key<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>choice<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">final</span> Choice choice<span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">final</span> TextStyle textStyle <span class="token operator">=</span> Theme<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>textTheme<span class="token punctuation">.</span>display1<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">Card</span><span class="token punctuation">(</span>
+      color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>white<span class="token punctuation">,</span>
+      child<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token function">Column</span><span class="token punctuation">(</span>
+          mainAxisSize<span class="token punctuation">:</span> MainAxisSize<span class="token punctuation">.</span>min<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> CrossAxisAlignment<span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token function">Icon</span><span class="token punctuation">(</span>choice<span class="token punctuation">.</span>icon<span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">128.0</span><span class="token punctuation">,</span> color<span class="token punctuation">:</span> textStyle<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">Text</span><span class="token punctuation">(</span>choice<span class="token punctuation">.</span>title<span class="token punctuation">,</span> style<span class="token punctuation">:</span> textStyle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">TabbedAppBarSample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="底部导航菜单"><a class="header-anchor" href="#底部导航菜单" aria-hidden="true">#</a> 底部导航菜单</h3><p><img src="https://oss.filway.cn/filway-blog/bottom_tabbar.png" alt="bottom_tabbar"></p><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:flutter_app/pages/home_page.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:flutter_app/pages/my_page.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:flutter_app/pages/search_page.dart&#39;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&#39;package:flutter_app/pages/travel_page.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TabNavigator</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata symbol">@override</span>
+  _TabNavigatorState <span class="token function">createState</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">_TabNavigatorState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">_TabNavigatorState</span> <span class="token keyword">extends</span> <span class="token class-name">State</span><span class="token operator">&lt;</span>TabNavigator<span class="token operator">&gt;</span>
+    <span class="token keyword">with</span> SingleTickerProviderStateMixin <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> _defaultColor <span class="token operator">=</span> Colors<span class="token punctuation">.</span>grey<span class="token punctuation">;</span>
+  <span class="token keyword">final</span> _activeColor <span class="token operator">=</span> Colors<span class="token punctuation">.</span>blue<span class="token punctuation">;</span>
+  int _currentIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> _controller <span class="token operator">=</span> <span class="token function">PageController</span><span class="token punctuation">(</span>
+    initialPage<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  <span class="token keyword">void</span> <span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _controller<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      body<span class="token punctuation">:</span> <span class="token function">PageView</span><span class="token punctuation">(</span>
+        controller<span class="token punctuation">:</span> _controller<span class="token punctuation">,</span>
+        children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token function">HomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">SearchPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">TravelPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">MyPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        physics<span class="token punctuation">:</span> <span class="token function">NeverScrollableScrollPhysics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      bottomNavigationBar<span class="token punctuation">:</span> <span class="token function">BottomNavigationBar</span><span class="token punctuation">(</span>
+        currentIndex<span class="token punctuation">:</span> _currentIndex<span class="token punctuation">,</span>
+        onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span>index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          _controller<span class="token punctuation">.</span><span class="token function">jumpToPage</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            _currentIndex <span class="token operator">=</span> index<span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        type<span class="token punctuation">:</span> BottomNavigationBarType<span class="token punctuation">.</span>fixed<span class="token punctuation">,</span>
+        items<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token function">BottomNavigationBarItem</span><span class="token punctuation">(</span>
+            icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+              Icons<span class="token punctuation">.</span>home<span class="token punctuation">,</span>
+              color<span class="token punctuation">:</span> _defaultColor<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            activeIcon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+              Icons<span class="token punctuation">.</span>home<span class="token punctuation">,</span>
+              color<span class="token punctuation">:</span> _activeColor<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+              <span class="token string">&#39;首页&#39;</span><span class="token punctuation">,</span>
+              style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                  color<span class="token punctuation">:</span> _currentIndex <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">?</span> _defaultColor <span class="token punctuation">:</span> _activeColor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">BottomNavigationBarItem</span><span class="token punctuation">(</span>
+              icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>search<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _defaultColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              activeIcon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>search<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _activeColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+                <span class="token string">&#39;搜索&#39;</span><span class="token punctuation">,</span>
+                style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                    color<span class="token punctuation">:</span> _currentIndex <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">?</span> _defaultColor <span class="token punctuation">:</span> _activeColor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">BottomNavigationBarItem</span><span class="token punctuation">(</span>
+              icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>camera_alt<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _defaultColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              activeIcon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>camera_alt<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _activeColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+                <span class="token string">&#39;旅拍&#39;</span><span class="token punctuation">,</span>
+                style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                    color<span class="token punctuation">:</span> _currentIndex <span class="token operator">!=</span> <span class="token number">2</span> <span class="token operator">?</span> _defaultColor <span class="token punctuation">:</span> _activeColor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token function">BottomNavigationBarItem</span><span class="token punctuation">(</span>
+              icon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>account_circle<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _defaultColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              activeIcon<span class="token punctuation">:</span> <span class="token function">Icon</span><span class="token punctuation">(</span>
+                Icons<span class="token punctuation">.</span>account_circle<span class="token punctuation">,</span>
+                color<span class="token punctuation">:</span> _activeColor<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>
+                <span class="token string">&#39;我的&#39;</span><span class="token punctuation">,</span>
+                style<span class="token punctuation">:</span> <span class="token function">TextStyle</span><span class="token punctuation">(</span>
+                    color<span class="token punctuation">:</span> _currentIndex <span class="token operator">!=</span> <span class="token number">3</span> <span class="token operator">?</span> _defaultColor <span class="token punctuation">:</span> _activeColor<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="侧拉栏菜单"><a class="header-anchor" href="#侧拉栏菜单" aria-hidden="true">#</a> 侧拉栏菜单</h3><p><img src="https://oss.filway.cn/filway-blog/drawer.png" alt="drawer"></p><div class="language-dart"><pre><code><span class="token keyword">import</span> <span class="token string">&#39;package:flutter/material.dart&#39;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token function">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> appTitle <span class="token operator">=</span> <span class="token string">&#39;Drawer Demo&#39;</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">MaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> appTitle<span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token function">MyHomePage</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> appTitle<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyHomePage</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> String title<span class="token punctuation">;</span>
+
+  <span class="token function">MyHomePage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>Key key<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata symbol">@override</span>
+  Widget <span class="token function">build</span><span class="token punctuation">(</span>BuildContext context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token function">AppBar</span><span class="token punctuation">(</span>title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token function">Center</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&#39;My Page!&#39;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      drawer<span class="token punctuation">:</span> <span class="token function">Drawer</span><span class="token punctuation">(</span>
+        <span class="token comment">// Add a ListView to the drawer. This ensures the user can scroll</span>
+        <span class="token comment">// through the options in the Drawer if there isn&#39;t enough vertical</span>
+        <span class="token comment">// space to fit everything.</span>
+        child<span class="token punctuation">:</span> <span class="token function">ListView</span><span class="token punctuation">(</span>
+          <span class="token comment">// Important: Remove any padding from the ListView.</span>
+          padding<span class="token punctuation">:</span> EdgeInsets<span class="token punctuation">.</span>zero<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token function">DrawerHeader</span><span class="token punctuation">(</span>
+              child<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&#39;Drawer Header&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              decoration<span class="token punctuation">:</span> <span class="token function">BoxDecoration</span><span class="token punctuation">(</span>
+                color<span class="token punctuation">:</span> Colors<span class="token punctuation">.</span>blue<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&#39;Item 1&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// Update the state of the app</span>
+                <span class="token comment">// ...</span>
+                <span class="token comment">// Then close the drawer</span>
+                Navigator<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">ListTile</span><span class="token punctuation">(</span>
+              title<span class="token punctuation">:</span> <span class="token function">Text</span><span class="token punctuation">(</span><span class="token string">&#39;Item 2&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// Update the state of the app</span>
+                <span class="token comment">// ...</span>
+                <span class="token comment">// Then close the drawer</span>
+                Navigator<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="什么是pageview？"><a class="header-anchor" href="#什么是pageview？" aria-hidden="true">#</a> 什么是PageView？</h2><p><code>PageView</code>是一个可以完成页面之间滚动的widget。</p><div class="language-dart"><pre><code><span class="token keyword">class</span> <span class="token class-name">PageView</span> <span class="token keyword">extends</span> <span class="token class-name">StatefulWidget</span> <span class="token punctuation">{</span>
+   <span class="token function">PageView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    Key key<span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>scrollDirection <span class="token operator">=</span> Axis<span class="token punctuation">.</span>horizontal<span class="token punctuation">,</span> <span class="token comment">//滚动的方向，支持水平和垂直两个方向</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>reverse <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//是否反方向滚动</span>
+    PageController controller<span class="token punctuation">,</span> <span class="token comment">//PageView的控制类</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>physics<span class="token punctuation">,</span> <span class="token comment">//手势滚动逻辑，支持不滚动，总是滚动，与滚动到边缘时是否有bounce</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>pageSnapping <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">//设置为false以禁用页面捕捉，对自定义滚动行为很有用。</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>onPageChanged<span class="token punctuation">,</span><span class="token comment">//页面切换时调用</span>
+    List<span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span> children <span class="token operator">=</span> <span class="token keyword">const</span> <span class="token operator">&lt;</span>Widget<span class="token operator">&gt;</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> controller <span class="token operator">=</span> controller <span class="token operator">?</span><span class="token operator">?</span> _defaultPageController<span class="token punctuation">,</span>
+       childrenDelegate <span class="token operator">=</span> <span class="token function">SliverChildListDelegate</span><span class="token punctuation">(</span>children<span class="token punctuation">)</span><span class="token punctuation">,</span>
+       <span class="token keyword">super</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre></div></div><div class="links-wrapper" data-v-2001909f><div class="prev-link"><!----></div><div class="next-link"><!----></div></div><div data-v-2001909f><!-- <footer class="page-edit">
+      <a v-for="(item, index) in data.platform" :key="index" :href="item.href">
+        <img class="imgIcon" :src="item.icon" />
+      </a>
+    </footer>
+    <p class="platform">
+      以上皆为
+      <a href="javascript:;">filway</a> 文章发布平台
+    </p> --><p class="platform"> Copyright © 2022 <a href="https://github.com/filway">@filway</a></p></div><!--[--><!--[--><!--]--><!--]--></div><!-- 只想点击背景才关闭 请使用 .self 修饰符 --><div style="display:none;" class="imgBox"><img src=""></div><!--]--></main><div class="theme-select" data-v-2001909f><ul data-v-2001909f><li class="active" data-v-2001909f>☀️</li><li class="" data-v-2001909f> 🌑 </li></ul></div></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"README.md\":\"5ccc2232\",\"index.md\":\"234e1fb7\",\"more_Friendship.md\":\"c4000430\",\"more_docs.md\":\"9824001f\",\"more_index.md\":\"7a95c2a3\",\"more_tags.md\":\"6e9db034\",\"docs_eggjs_01.md\":\"3f24c7fb\",\"docs_layout_css_file.md\":\"5d80647e\",\"docs_layout_css_method.md\":\"57806677\",\"docs_layout_mobile.md\":\"7ae85dd0\",\"docs_layout_restore-ui-design.md\":\"caa6d221\",\"docs_notes_acme-sh.md\":\"8d928bd0\",\"docs_notes_deploy.md\":\"78b9b91f\",\"docs_notes_fe-component-platform.md\":\"cf8df577\",\"docs_notes_gitflow.md\":\"3057c81f\",\"docs_notes_github-page.md\":\"da33afaa\",\"docs_notes_nginx.md\":\"7e7340f2\",\"docs_notes_nodebestpractices.md\":\"e3a4283e\",\"docs_notes_safe.md\":\"42e14477\",\"docs_notes_vue-router-next.md\":\"ab02fe57\",\"docs_Front_arch_week2_02.md\":\"b94e373b\",\"docs_Front_arch_week2_03.md\":\"2933158b\",\"docs_Front_arch_week2_04.md\":\"2d054f72\",\"docs_Front_arch_week2_05.md\":\"ff75d15e\",\"docs_Front_arch_week2_06.md\":\"7e2667ad\",\"docs_Front_arch_week2_07.md\":\"2fb9bbcd\",\"docs_Front_arch_week2_08.md\":\"f73dff18\",\"docs_Front_arch_week27_01.md\":\"ac602789\",\"docs_Front_arch_week27_02.md\":\"150d9cd8\",\"docs_Front_arch_week28_01.md\":\"45111e1d\",\"docs_Front_arch_week28_02.md\":\"5baac625\",\"docs_Front_arch_week29_01.md\":\"915859dd\",\"docs_Front_arch_week29_02.md\":\"a50758e2\",\"docs_Front_arch_week29_03.md\":\"60fd2bf8\",\"docs_Front_arch_week3_00.md\":\"9482ad18\",\"docs_Front_arch_week3_01.md\":\"d26e5f51\",\"docs_Front_arch_week3_02.md\":\"09a24585\",\"docs_Front_arch_week3_03.md\":\"d4167023\",\"docs_Front_arch_week3_04.md\":\"57dc2283\",\"docs_Front_arch_week3_05.md\":\"18dcc905\",\"docs_Front_arch_week30_01.md\":\"d7b5fad6\",\"docs_Front_arch_week30_02.md\":\"f3f46a49\",\"docs_Front_arch_week31_01.md\":\"fe23274a\",\"docs_Front_arch_week33_01.md\":\"0b1ec120\",\"docs_Front_arch_week4_01.md\":\"d0e0afe1\",\"docs_Front_arch_week4_02.md\":\"125d6466\",\"docs_Front_arch_week4_03.md\":\"519499d9\",\"docs_Front_arch_week4_04.md\":\"9a0ecb5b\",\"docs_Front_arch_week5_01.md\":\"7d7e87ec\",\"docs_Front_arch_week5_02.md\":\"4bb88c22\",\"docs_Front_arch_week5_03.md\":\"a04c0779\",\"docs_Front_arch_week6_01.md\":\"292eb8ff\",\"docs_Front_arch_week6_02.md\":\"9ee0b478\",\"docs_Front_arch_week6_03.md\":\"750443e4\",\"docs_Front_arch_week9-xmdj_dx.md\":\"524fe2b9\",\"docs_Front_arch_week9-xmdj_qdgjl.md\":\"fa2cadde\",\"docs_Front_arch_week9-xmdj_xmdj.md\":\"f2040f48\",\"docs_front_monitoring_js_lib_js_sdk.md\":\"945697ff\",\"docs_front_monitoring_js_lib_quick_start.md\":\"cc99de3f\",\"docs_notes_Flutter_APP_homepage.md\":\"0745ccc8\",\"docs_notes_Flutter_animation.md\":\"e0bd035f\",\"docs_notes_Flutter_error.md\":\"e35b38b0\",\"docs_notes_Flutter_expansion_tile.md\":\"4cf78a31\",\"docs_notes_Flutter_future.md\":\"0dca4e38\",\"docs_notes_Flutter_gridview.md\":\"4905765c\",\"docs_notes_Flutter_http.md\":\"b7d272e2\",\"docs_notes_Flutter_image_widget.md\":\"554b379b\",\"docs_notes_Flutter_json.md\":\"6faeff9d\",\"docs_notes_Flutter_list_pulldown.md\":\"ba2aa6f4\",\"docs_notes_Flutter_list_view.md\":\"7509e452\",\"docs_notes_Flutter_shared_preferences.md\":\"ce55aee9\",\"docs_notes_Performance_01.md\":\"1800305d\",\"docs_notes_Performance_02.md\":\"bf67a458\",\"docs_notes_Performance_03.md\":\"a00f4a3f\",\"docs_notes_Performance_04.md\":\"8492a9bb\",\"docs_notes_Performance_05.md\":\"0cc82c11\",\"docs_notes_vnpn_01.md\":\"81d2f56f\"}")</script>
+    <script type="module" async src="/_assets/app.d18979ca.js"></script>
+  </body>
+</html>

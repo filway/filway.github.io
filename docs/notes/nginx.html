@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      nginx配置 | filway
+    </title>
+    <meta name="description" content="A VitePress site">
+    <link rel="stylesheet" href="/_assets/style.6c30fbeb.css">
+    <link rel="modulepreload" href="/_assets/common-bec3f312.js">
+    <link rel="modulepreload" href="/_assets/docs_notes_nginx.md.7e7340f2.lean.js">
+    <link rel="modulepreload" href="/_assets/app.d18979ca.js">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="filway,技术博客,记录日常">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.css">
+    <script src="https://lib.baomitu.com/gitalk/1.7.0/gitalk.min.js"></script>
+    <script src="https://lib.baomitu.com/axios/0.21.1/axios.js"></script>
+    <script async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6346362766172412" crossorigin="anonymous"></script>
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div id="containerColor" class="no-sidebar theme" data-v-2001909f><header class="navbar" data-v-2001909f><!--[--><a class="title" aria-label="filway, back to home" href="/"><img class="logo" src="/favicon.ico" alt="logo"><span>filway</span></a><div class="flex-grow"></div><nav class="nav-links hide-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><!--]--><div class="sidebar-button" data-v-2001909f><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div></header><aside class="" data-v-2001909f><!--[--><nav class="nav-links show-mobile" data-v-2001909f><!--[--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/index.html" target="" rel="">🏠 首页 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/docs.html" target="" rel="">📅 归档 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/tags.html" target="" rel="">📂 分类 <!----></a></div><!--]--><!--[--><div class="nav-item" data-v-2001909f><a class="nav-link" href="/more/Friendship.html" target="" rel="">👫 友情链接 <!----></a></div><!--]--><!--]--><!----><!----></nav><!--[--><!--[--><!--]--><!--]--><ul class="sidebar"><!--[--><!--]--></ul><!--[--><!--[--><!--]--><!--]--><!--]--></aside><!----><!-- TODO: make this button accessible --><div class="sidebar-mask" data-v-2001909f></div><main data-v-2001909f><!--[--><div class="content"><!--[--><!--[--><!--]--><!--]--><div class="md-header"><div class="md-title">nginx配置</div><span id="jinrishici-sentence">正在加载今日诗词....</span><div class="md-date">2021-10-10</div></div><ul class="catalog"><!--[--><li class="catalog-item"><a class="level level-2" href="#nginx配置示例">nginx配置示例</a><!----></li><li class="catalog-item"><!----><a class="level level-3" href="#脚手架发布静态页面-history-模式">脚手架发布静态页面 history 模式</a></li><!--]--></ul><div data-v-2001909f><h2 id="nginx配置示例"><a class="header-anchor" href="#nginx配置示例" aria-hidden="true">#</a> nginx配置示例</h2><h3 id="脚手架发布静态页面-history-模式"><a class="header-anchor" href="#脚手架发布静态页面-history-模式" aria-hidden="true">#</a> 脚手架发布静态页面 history 模式</h3><div class="language-yaml"><pre><code><span class="token comment">#以下属性中，以ssl开头的属性表示与证书配置有关。</span>
+server <span class="token punctuation">{</span>
+    listen 443 ssl http2;
+    listen <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span>443 ssl http2;
+    <span class="token comment">#配置HTTPS的默认访问端口为443。</span>
+    <span class="token comment">#如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。</span>
+    <span class="token comment">#如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。</span>
+    server_name h5maker.filway.cn; <span class="token comment">#需要将yourdomain.com替换成证书绑定的域名。</span>
+    index index.html index.htm;
+    ssl_certificate cert/5800294_h5maker.filway.cn.pem;  <span class="token comment">#需要将cert-file-name.pem替换成已上传的证书文件的名称。</span>
+    ssl_certificate_key cert/5800294_h5maker.filway.cn.key; <span class="token comment">#需要将cert-file-name.key替换成已上传的证书密钥文件的名称。</span>
+    ssl_session_timeout 5m;
+    ssl_ciphers ECDHE<span class="token punctuation">-</span>RSA<span class="token punctuation">-</span>AES128<span class="token punctuation">-</span>GCM<span class="token punctuation">-</span>SHA256<span class="token punctuation">:</span>ECDHE<span class="token punctuation">:</span>ECDH<span class="token punctuation">:</span>AES<span class="token punctuation">:</span>HIGH<span class="token punctuation">:</span><span class="token tag">!NULL:</span><span class="token tag">!aNULL:</span><span class="token tag">!MD5:</span><span class="token tag">!ADH:</span><span class="token tag">!RC4;</span>
+    <span class="token comment">#表示使用的加密套件的类型。</span>
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; <span class="token comment">#表示使用的TLS协议的类型。</span>
+    ssl_prefer_server_ciphers on;
+    root /root/upload;
+    autoindex on;
+    add_header Cache<span class="token punctuation">-</span>Control &quot;no<span class="token punctuation">-</span>cache<span class="token punctuation">,</span> must<span class="token punctuation">-</span>revalidate&quot;;
+    index index.php index.html index.htm;
+
+    location / <span class="token punctuation">{</span>
+      add_header Access<span class="token punctuation">-</span>Control<span class="token punctuation">-</span>Allow<span class="token punctuation">-</span>Origin <span class="token important">*;</span>
+    <span class="token punctuation">}</span>
+
+    location /test2 <span class="token punctuation">{</span>
+         try_files $uri $uri/ @router;
+	 index index.html;
+    <span class="token punctuation">}</span>
+
+    location @router <span class="token punctuation">{</span>
+      rewrite ^.<span class="token important">*$</span> /test2/index.html last;
+    <span class="token punctuation">}</span>
+
+    location ~ /\.ht <span class="token punctuation">{</span>
+        deny all;
+    <span class="token punctuation">}</span>
+
+    location /.well<span class="token punctuation">-</span>known/acme<span class="token punctuation">-</span>challenge/ <span class="token punctuation">{</span>
+        root /var/www/letsencrypt/;
+        log_not_found off;
+    <span class="token punctuation">}</span>
+
+    error_log logs/h5maker_error.log;
+    access_log logs/h5maker_access.log;
+<span class="token punctuation">}</span>
+
+server <span class="token punctuation">{</span>
+    listen 80;
+    server_name h5maker.filway.cn; <span class="token comment">#需要将yourdomain.com替换成证书绑定的域名。</span>
+    rewrite ^(.<span class="token important">*)$</span> https<span class="token punctuation">:</span>//$host$1; <span class="token comment">#将所有HTTP请求通过rewrite指令重定向到HTTPS。</span>
+    location / <span class="token punctuation">{</span>
+        index index.html index.htm;
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div><div class="links-wrapper" data-v-2001909f><div class="prev-link"><!----></div><div class="next-link"><!----></div></div><div data-v-2001909f><!-- <footer class="page-edit">
+      <a v-for="(item, index) in data.platform" :key="index" :href="item.href">
+        <img class="imgIcon" :src="item.icon" />
+      </a>
+    </footer>
+    <p class="platform">
+      以上皆为
+      <a href="javascript:;">filway</a> 文章发布平台
+    </p> --><p class="platform"> Copyright © 2022 <a href="https://github.com/filway">@filway</a></p></div><!--[--><!--[--><!--]--><!--]--></div><!-- 只想点击背景才关闭 请使用 .self 修饰符 --><div style="display:none;" class="imgBox"><img src=""></div><!--]--></main><div class="theme-select" data-v-2001909f><ul data-v-2001909f><li class="active" data-v-2001909f>☀️</li><li class="" data-v-2001909f> 🌑 </li></ul></div></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"README.md\":\"5ccc2232\",\"index.md\":\"234e1fb7\",\"more_Friendship.md\":\"c4000430\",\"more_docs.md\":\"9824001f\",\"more_index.md\":\"7a95c2a3\",\"more_tags.md\":\"6e9db034\",\"docs_eggjs_01.md\":\"3f24c7fb\",\"docs_layout_css_file.md\":\"5d80647e\",\"docs_layout_css_method.md\":\"57806677\",\"docs_layout_mobile.md\":\"7ae85dd0\",\"docs_layout_restore-ui-design.md\":\"caa6d221\",\"docs_notes_acme-sh.md\":\"8d928bd0\",\"docs_notes_deploy.md\":\"78b9b91f\",\"docs_notes_fe-component-platform.md\":\"cf8df577\",\"docs_notes_gitflow.md\":\"3057c81f\",\"docs_notes_github-page.md\":\"da33afaa\",\"docs_notes_nginx.md\":\"7e7340f2\",\"docs_notes_nodebestpractices.md\":\"e3a4283e\",\"docs_notes_safe.md\":\"42e14477\",\"docs_notes_vue-router-next.md\":\"ab02fe57\",\"docs_Front_arch_week2_02.md\":\"b94e373b\",\"docs_Front_arch_week2_03.md\":\"2933158b\",\"docs_Front_arch_week2_04.md\":\"2d054f72\",\"docs_Front_arch_week2_05.md\":\"ff75d15e\",\"docs_Front_arch_week2_06.md\":\"7e2667ad\",\"docs_Front_arch_week2_07.md\":\"2fb9bbcd\",\"docs_Front_arch_week2_08.md\":\"f73dff18\",\"docs_Front_arch_week27_01.md\":\"ac602789\",\"docs_Front_arch_week27_02.md\":\"150d9cd8\",\"docs_Front_arch_week28_01.md\":\"45111e1d\",\"docs_Front_arch_week28_02.md\":\"5baac625\",\"docs_Front_arch_week29_01.md\":\"915859dd\",\"docs_Front_arch_week29_02.md\":\"a50758e2\",\"docs_Front_arch_week29_03.md\":\"60fd2bf8\",\"docs_Front_arch_week3_00.md\":\"9482ad18\",\"docs_Front_arch_week3_01.md\":\"d26e5f51\",\"docs_Front_arch_week3_02.md\":\"09a24585\",\"docs_Front_arch_week3_03.md\":\"d4167023\",\"docs_Front_arch_week3_04.md\":\"57dc2283\",\"docs_Front_arch_week3_05.md\":\"18dcc905\",\"docs_Front_arch_week30_01.md\":\"d7b5fad6\",\"docs_Front_arch_week30_02.md\":\"f3f46a49\",\"docs_Front_arch_week31_01.md\":\"fe23274a\",\"docs_Front_arch_week33_01.md\":\"0b1ec120\",\"docs_Front_arch_week4_01.md\":\"d0e0afe1\",\"docs_Front_arch_week4_02.md\":\"125d6466\",\"docs_Front_arch_week4_03.md\":\"519499d9\",\"docs_Front_arch_week4_04.md\":\"9a0ecb5b\",\"docs_Front_arch_week5_01.md\":\"7d7e87ec\",\"docs_Front_arch_week5_02.md\":\"4bb88c22\",\"docs_Front_arch_week5_03.md\":\"a04c0779\",\"docs_Front_arch_week6_01.md\":\"292eb8ff\",\"docs_Front_arch_week6_02.md\":\"9ee0b478\",\"docs_Front_arch_week6_03.md\":\"750443e4\",\"docs_Front_arch_week9-xmdj_dx.md\":\"524fe2b9\",\"docs_Front_arch_week9-xmdj_qdgjl.md\":\"fa2cadde\",\"docs_Front_arch_week9-xmdj_xmdj.md\":\"f2040f48\",\"docs_front_monitoring_js_lib_js_sdk.md\":\"945697ff\",\"docs_front_monitoring_js_lib_quick_start.md\":\"cc99de3f\",\"docs_notes_Flutter_APP_homepage.md\":\"0745ccc8\",\"docs_notes_Flutter_animation.md\":\"e0bd035f\",\"docs_notes_Flutter_error.md\":\"e35b38b0\",\"docs_notes_Flutter_expansion_tile.md\":\"4cf78a31\",\"docs_notes_Flutter_future.md\":\"0dca4e38\",\"docs_notes_Flutter_gridview.md\":\"4905765c\",\"docs_notes_Flutter_http.md\":\"b7d272e2\",\"docs_notes_Flutter_image_widget.md\":\"554b379b\",\"docs_notes_Flutter_json.md\":\"6faeff9d\",\"docs_notes_Flutter_list_pulldown.md\":\"ba2aa6f4\",\"docs_notes_Flutter_list_view.md\":\"7509e452\",\"docs_notes_Flutter_shared_preferences.md\":\"ce55aee9\",\"docs_notes_Performance_01.md\":\"1800305d\",\"docs_notes_Performance_02.md\":\"bf67a458\",\"docs_notes_Performance_03.md\":\"a00f4a3f\",\"docs_notes_Performance_04.md\":\"8492a9bb\",\"docs_notes_Performance_05.md\":\"0cc82c11\",\"docs_notes_vnpn_01.md\":\"81d2f56f\"}")</script>
+    <script type="module" async src="/_assets/app.d18979ca.js"></script>
+  </body>
+</html>
